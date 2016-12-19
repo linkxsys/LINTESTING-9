@@ -12,5 +12,5 @@ ADD www /www
 EXPOSE 80
 
 #CMD ["/usr/bin/php-fpm", "--nodaemonize"]
-#CMD ["nginx", "-g", "daemon off;"]
-CMD /usr/sbin/nginx
+CMD ["nginx", "-g", "daemon off;"]
+#CMD /usr/sbin/nginx
