@@ -4,7 +4,9 @@ RUN apk add --no-cache nginx php5-fpm php5-mcrypt php5-soap php5-openssl php5-gm
 	&& adduser -D -u 1000 -g 'www' www \
 	&& mkdir /www \
 	&& chown -R www:www /var/lib/nginx \
-	&& chown -R www:www /www
+	&& chown -R www:www /www \
+	&& ln -sf /dev/stdout /var/log/nginx/access.log \
+	&& ln -sf /dev/stderr /var/log/nginx/error.log
 
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 COPY conf/php-fpm.conf /etc/php5/php-fpm.conf
