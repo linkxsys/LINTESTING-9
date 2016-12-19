@@ -8,14 +8,8 @@ RUN apk add --no-cache nginx php5-fpm php5-mcrypt php5-soap php5-openssl php5-gm
 	&& ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
 
-COPY conf/nginx.conf /etc/nginx/nginx.conf
-COPY conf/php-fpm.conf /etc/php5/php-fpm.conf
-COPY start.sh /
+COPY files /
 RUN chmod 755 /start.sh
-ADD www /www
 EXPOSE 80
 
-#CMD ["/usr/bin/php-fpm", "--nodaemonize"]
-#CMD ["nginx", "-g", "daemon off;"]
-#CMD /usr/sbin/nginx
 CMD /start.sh
