@@ -11,5 +11,8 @@ RUN apk add --no-cache nginx php5-fpm php5-mcrypt php5-soap php5-openssl php5-gm
 COPY files /
 RUN chmod 755 /start.sh
 EXPOSE 80
+ENV USERNAME lintesting
+ENV SERVERNAME lintesting.c8fsyuyj8qws.us-east-1.rds.amazonaws.com
+ENV PASSWORD ebfa5cf69b
 
-CMD /start.sh
+ENTRYPOINT ["/start.sh"]
